@@ -47,11 +47,11 @@ class UiApp:
         with container:
             st.markdown("<h6>Contract Preview</h6", unsafe_allow_html=True)
             image_path = [
-                r"contract_templates\Contractor_Agreement_Preview.png",
-                r"contract_templates\NDA_Preview.png",
-                r"contract_templates\Partnership_Agreement_Preview.png",
-                r"contract_templates\Sales_Agreement_Preview.png",
-                r"contract_templates\Service_Agreement_Preview.png"
+                "contract_templates/Contractor_Agreement_Preview.png",
+                "contract_templates/NDA_Preview.png",
+                "contract_templates/Partnership_Agreement_Preview.png",
+                "contract_templates/Sales_Agreement_Preview.png",
+                "contract_templates/Service_Agreement_Preview.png"
             ]
             image_caption = [
                 "Contracter Preview",
