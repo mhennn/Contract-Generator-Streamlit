@@ -88,11 +88,14 @@ class UiApp:
 
             self.user_template = st.selectbox("Choose Template", options=template_options, key="user_docx")
             if st.session_state.fields:
-                self.fields()
+                is_missing_data = self.input_fields()
                 if st.button("Generate Template"):
-                    self.generate_template()
+                    if is_missing_data:
+                        self.generate_template()
+                    else:
+                        st.error("Incomplete Data. Check Fields")
         
-    def fields(self):
+    def input_fields(self):
         input_columns = st.columns(2)
         with input_columns[0]:
             self.effectivity_date = st.text_input("Effectivity Date", key="eff_date")
@@ -110,6 +113,13 @@ class UiApp:
             self.party_a_zip = st.text_input("Party A Zip Code", key="p_a_zip")
         with input_columns[1]:
             self.party_b_zip = st.text_input("Party B Zip Code", key="p_b_zip")
+
+        field_list = [
+            self.effectivity_date, self.file_name, self.party_a_name, self.party_b_name,
+            self.party_a_address, self.party_b_address, self.party_a_zip, self.party_b_zip
+        ]
+
+        return all(field_list)
 
     def generate_template(self):
         progress_text = "Generating Template..."
