@@ -93,7 +93,7 @@ class UiApp:
                     if is_missing_data:
                         self.generate_template()
                     else:
-                        st.error("Incomplete Data. Check Fields")
+                        st.error("Incomplete Data. Check Input Fields")
         
     def input_fields(self):
         input_columns = st.columns(2)
