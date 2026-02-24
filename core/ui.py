@@ -112,6 +112,13 @@ class UiApp:
         time.sleep(1)
         st.success("Template is ready ✒️")
         
-        docsRead = DocsRead(self.user_template, self.file_name)
+        docsRead = DocsRead(self.user_template)
         docsRead.docs_context(self.effectivity_date, self.party_a_name, self.party_b_name, self.party_a_address, self.party_b_address, self.party_a_zip,
                               self.party_b_zip)
+        
+        st.download_button(
+            label="Download Template",
+            data=docsRead.saving_document(),
+            file_name=f"{self.file_name}.docx",
+            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        )

@@ -1,9 +1,9 @@
 from docxtpl import DocxTemplate as dx
+import io
 
 class DocsRead:
-    def __init__(self, template_name, file_name):
-        self.document = dx(f"contract_templates\{template_name}.docx")
-        self.file = file_name
+    def __init__(self, template_name):
+        self.document = dx(f"contract_templates/{template_name}.docx")
     
     def docs_context(self, *args):
         self.context = {
@@ -16,7 +16,9 @@ class DocsRead:
             "party_b_city_state_zip": args[6],
         }
         self.document.render(self.context)
-        return self.saving_document(self.file)
 
-    def saving_document(self, file_name):
-        self.document.save(f"{file_name}.docx")
+    def saving_document(self):
+        bio = io.BytesIO()
+        self.document.save(bio)
+        bio.seek(0)
+        return bio
