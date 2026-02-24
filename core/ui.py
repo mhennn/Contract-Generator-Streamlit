@@ -93,14 +93,23 @@ class UiApp:
                     self.generate_template()
         
     def fields(self):
-        self.effectivity_date = st.text_input("Effectivity Date", key="eff_date")
-        self.party_a_name = st.text_input("Party A Full Name", key="p_a_name")
-        self.party_b_name = st.text_input("Party B Full Name", key="p_b_name")
-        self.party_a_address = st.text_input("Party A Address", key="p_a_addr")
-        self.party_b_address = st.text_input("Party B Address", key="p_b_addr")
-        self.party_a_zip = st.text_input("Party A Zip Code", key="p_a_zip")
-        self.party_b_zip = st.text_input("Party B Zip Code", key="p_b_zip")
-        self.file_name = st.text_input("File Name", key="file_location")
+        input_columns = st.columns(2)
+        with input_columns[0]:
+            self.effectivity_date = st.text_input("Effectivity Date", key="eff_date")
+        with input_columns[1]:
+            self.file_name = st.text_input("File Name", key="file_location")
+        with input_columns[0]:
+            self.party_a_name = st.text_input("Party A Full Name", key="p_a_name")
+        with input_columns[1]:
+            self.party_b_name = st.text_input("Party B Full Name", key="p_b_name")
+        with input_columns[0]:
+            self.party_a_address = st.text_input("Party A Address", key="p_a_addr")
+        with input_columns[1]:
+            self.party_b_address = st.text_input("Party B Address", key="p_b_addr")
+        with input_columns[0]:
+            self.party_a_zip = st.text_input("Party A Zip Code", key="p_a_zip")
+        with input_columns[1]:
+            self.party_b_zip = st.text_input("Party B Zip Code", key="p_b_zip")
 
     def generate_template(self):
         progress_text = "Generating Template..."

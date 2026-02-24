@@ -12,6 +12,13 @@ Looking for an on-the-go template for your contract and business and make sure t
 ### Generate now - Streamlit Preview
 ![Ui_Interface](./sample_pictures/ui.png)
 
+### Available Template
+- Contractor Agreement ✒️
+- Non-Disclosure Agreement ✒️
+- Partnership Agreement ✒️
+- Sales Agreement ✒️
+- Service Agreement ✒️
+
 ### How to use?
 1. Environment activation
 ```bash
@@ -28,6 +35,10 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
+
+#### Note
+
+This template is only a starting point for your agreement, feel free to modify the downloaded template ✒️
 
 ---
 ##### Contract-Generator your On-the-go ✒️
