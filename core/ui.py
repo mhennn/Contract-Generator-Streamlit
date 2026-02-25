@@ -98,7 +98,7 @@ class UiApp:
     def input_fields(self):
         input_columns = st.columns(2)
         with input_columns[0]:
-            self.effectivity_date = st.text_input("Effectivity Date", key="eff_date")
+            self.effectivity_date = st.date_input("Effectivity Date")
         with input_columns[1]:
             self.file_name = st.text_input("File Name", key="file_location")
         with input_columns[0]:
